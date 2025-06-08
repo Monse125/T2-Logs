@@ -1,0 +1,6 @@
+*.o
+kruskal
+results/
+data/
+
+venv
