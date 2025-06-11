@@ -3,6 +3,26 @@
 #include <iostream>
 #include <iomanip>  // para fijar decimales
 
+
+/*
+Flujo del experimento:
+main.cpp
+│
+├─ Para cada tamaño N ∈ {25, 26, ..., 212}:
+│   ├─ Repetir 5 veces:
+│   │   ├─ Generar grafo aleatorio completo (Graph g)
+│   │   ├─ Ejecutar kruskal_sorted_optim(g) y medir tiempo
+│   │   ├─ Ejecutar kruskal_heap_optim(g) y medir tiempo
+│   │   ├─ Ejecutar kruskal_sorted_raw(g) y medir tiempo
+│   │   ├─ Ejecutar kruskal_heap_raw(g) y medir tiempo
+│   │   └─ Guardar resultados en estructura local
+│   └─ Calcular promedios y guardar en archivo CSV o similar
+│
+└─ Final: Graficar o procesar resultados
+
+*/
+
+
 int main() {
     int N = 10;  // grafo pequeño para probar
     Graph g(N);
