@@ -1,15 +1,21 @@
 #include "kruskal_heap_raw.hpp"
 #include "union_find_raw.hpp"
 #include <queue>
-#include <functional>  // std::greater
+
+// Comparador personalizado para min-heap
+struct EdgeComparator {
+    bool operator()(const Edge& a, const Edge& b) const {
+        return a.weight > b.weight;  // Para min-heap: el mayor tiene menor prioridad
+    }
+};
 
 std::vector<Edge> kruskalHeapRaw(const Graph& g) {
     int n = g.nodes.size();
     std::vector<Edge> mst;
     mst.reserve(n - 1);
 
-    // Min-heap usando priority_queue con comparador greater
-    std::priority_queue<Edge, std::vector<Edge>, std::greater<Edge>> heap;
+    // Min-heap usando comparador personalizado
+    std::priority_queue<Edge, std::vector<Edge>, EdgeComparator> heap;
     
     // Agregar todas las aristas al heap
     for (const Edge& e : g.edges) {
