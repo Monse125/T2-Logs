@@ -1,0 +1,143 @@
+# Ejecutables y archivos compilados
+*.exe
+*.out
+*.app
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+
+# Archivos del compilador
+*.gch
+*.pch
+
+# Directorios de compilación
+build/
+Build/
+BUILD/
+CMakeFiles/
+cmake_install.cmake
+CMakeCache.txt
+
+# Archivos de debug
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Archivos temporales del sistema
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Archivos de logs y datos de prueba
+*.log
+data/*.txt
+data/*.csv
+data/*.dat
+!data/.gitkeep
+
+# Archivos de IDEs
+.vscode/
+.vs/
+*.vcxproj*
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de CLion
+.idea/
+cmake-build-*/
+
+# Archivos de Code::Blocks
+*.cbp
+*.layout
+*.depend
+
+# Archivos de Dev-C++
+*.dev
+
+# Archivos de Visual Studio
+*.vcproj
+*.vcxproj.filters
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Archivos de Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Archivos de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Archivos de Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Archivos de Python (para scripts de análisis)
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+
+# Archivos de resultados específicos del proyecto
+results_*.txt
+timing_*.txt
+analysis_*.txt
+graph_*.dot
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Archivos de configuración local
+config.local
+settings.local
+*.local
+
+# Archivos de backup
+*.backup
+*.old
+*.orig
+
+# Archivos comprimidos accidentales
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Mantener estructura de directorios
+!build/.gitkeep
+!data/.gitkeep
