@@ -1,36 +1,36 @@
 #include "kruskal_heap_optim.hpp"
-#include "union_find_optim.hpp"  // Cambiar de union_find.hpp
+#include "union_find_optim.hpp"
 #include <queue>
 
 // Comparador personalizado para min-heap
 struct EdgeComparator {
-    bool operator()(const Edge& a, const Edge& b) const {
-        return a.weight > b.weight;  // Para min-heap: el mayor tiene menor prioridad
+    bool operator()(const Edge& edgeA, const Edge& edgeB) const {
+        return edgeA.weight > edgeB.weight;  // Para min-heap: el mayor tiene menor prioridad
     }
 };
 
-std::vector<Edge> kruskalHeapOptim(const Graph& g) {
-    int n = g.nodes.size();
+std::vector<Edge> kruskalHeapOptim(const Graph& graph) {
+    int numNodes = graph.nodes.size();
     std::vector<Edge> mst;
-    mst.reserve(n - 1);
+    mst.reserve(numNodes - 1);
 
     // Min-heap usando comparador personalizado
-    std::priority_queue<Edge, std::vector<Edge>, EdgeComparator> heap;
+    std::priority_queue<Edge, std::vector<Edge>, EdgeComparator> edgeHeap;
     
     // Agregar todas las aristas al heap
-    for (const Edge& e : g.edges) {
-        heap.push(e);
+    for (const Edge& currentEdge : graph.edges) {
+        edgeHeap.push(currentEdge);
     }
 
-    UnionFindOptim dsu(n);
+    UnionFindOptim unionFind(numNodes);
 
-    while (!heap.empty() && mst.size() < static_cast<size_t>(n - 1)) {
-        Edge e = heap.top();
-        heap.pop();
+    while (!edgeHeap.empty() && mst.size() < static_cast<size_t>(numNodes - 1)) {
+        Edge currentEdge = edgeHeap.top();
+        edgeHeap.pop();
 
-        if (dsu.find(e.from) != dsu.find(e.to)) {
-            dsu.unite(e.from, e.to);
-            mst.push_back(e);
+        if (unionFind.find(currentEdge.from) != unionFind.find(currentEdge.to)) {
+            unionFind.unite(currentEdge.from, currentEdge.to);
+            mst.push_back(currentEdge);
         }
     }
 

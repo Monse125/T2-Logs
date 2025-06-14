@@ -1,27 +1,27 @@
-#include "union_find_optim.hpp"  // Cambiar include
+#include "union_find_optim.hpp"
 
-UnionFindOptim::UnionFindOptim(int n) : parent(n), size(n, 1) {
-    for (int i = 0; i < n; ++i)
-        parent[i] = i;
+UnionFindOptim::UnionFindOptim(int numNodes) : parent(numNodes), size(numNodes, 1) {
+    for (int nodeIndex = 0; nodeIndex < numNodes; ++nodeIndex)
+        parent[nodeIndex] = nodeIndex;
 }
 
-int UnionFindOptim::find(int u) {
-    if (parent[u] != u)
-        parent[u] = find(parent[u]);  // CON compresión de caminos
-    return parent[u];
+int UnionFindOptim::find(int node) {
+    if (parent[node] != node)
+        parent[node] = find(parent[node]);  // CON compresión de caminos
+    return parent[node];
 }
 
-void UnionFindOptim::unite(int u, int v) {  // Cambiar UnionFindRaw por UnionFindOptim
-    int pu = find(u);
-    int pv = find(v);
-    if (pu == pv) return;
+void UnionFindOptim::unite(int nodeA, int nodeB) {
+    int rootA = find(nodeA);
+    int rootB = find(nodeB);
+    if (rootA == rootB) return;
 
-    // CON unión por tamaño (igual que la versión raw)
-    if (size[pu] < size[pv]) {
-        parent[pu] = pv;
-        size[pv] += size[pu];
+    // CON unión por tamaño
+    if (size[rootA] < size[rootB]) {
+        parent[rootA] = rootB;
+        size[rootB] += size[rootA];
     } else {
-        parent[pv] = pu;
-        size[pu] += size[pv];
+        parent[rootB] = rootA;
+        size[rootA] += size[rootB];
     }
 }

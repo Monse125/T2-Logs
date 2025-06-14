@@ -8,87 +8,87 @@
 #include <chrono>
 
 int main() {
-    int N = 32;  // 2^5 = 32 nodos para prueba
-    Graph g(N);
+    int numNodes = 32;  // 2^5 = 32 nodos para prueba
+    Graph testGraph(numNodes);
 
     std::cout << "=== PRUEBA DE LAS 4 IMPLEMENTACIONES DE KRUSKAL ===\n";
-    std::cout << "Grafo generado con " << g.nodes.size() << " nodos y " << g.edges.size() << " aristas.\n\n";
+    std::cout << "Grafo generado con " << testGraph.nodes.size() << " nodos y " << testGraph.edges.size() << " aristas.\n\n";
 
     // Variables para medir tiempo
-    auto start = std::chrono::high_resolution_clock::now();
-    auto end = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    auto startTime = std::chrono::high_resolution_clock::now();
+    auto endTime = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
 
     std::cout << std::fixed << std::setprecision(4);
 
     // ==================== PRUEBA 1: Kruskal Sorted + Union-Find Optimizado ====================
     std::cout << "1. Kruskal Ordenado + Union-Find Optimizado:\n";
-    start = std::chrono::high_resolution_clock::now();
-    std::vector<Edge> mst1 = kruskalSortedOptim(g);
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    startTime = std::chrono::high_resolution_clock::now();
+    std::vector<Edge> mstSortedOptim = kruskalSortedOptim(testGraph);
+    endTime = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
     
-    double weight1 = 0;
-    for (const Edge& e : mst1) weight1 += e.weight;
+    double weightSortedOptim = 0;
+    for (const Edge& edge : mstSortedOptim) weightSortedOptim += edge.weight;
     
     std::cout << "   Tiempo: " << duration.count() << " μs\n";
-    std::cout << "   Aristas MST: " << mst1.size() << "\n";
-    std::cout << "   Peso total: " << weight1 << "\n\n";
+    std::cout << "   Aristas MST: " << mstSortedOptim.size() << "\n";
+    std::cout << "   Peso total: " << weightSortedOptim << "\n\n";
 
     // ==================== PRUEBA 2: Kruskal Sorted + Union-Find Raw ====================
     std::cout << "2. Kruskal Ordenado + Union-Find Sin Optimizar:\n";
-    start = std::chrono::high_resolution_clock::now();
-    std::vector<Edge> mst2 = kruskalSortedRaw(g);
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    startTime = std::chrono::high_resolution_clock::now();
+    std::vector<Edge> mstSortedRaw = kruskalSortedRaw(testGraph);
+    endTime = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
     
-    double weight2 = 0;
-    for (const Edge& e : mst2) weight2 += e.weight;
+    double weightSortedRaw = 0;
+    for (const Edge& edge : mstSortedRaw) weightSortedRaw += edge.weight;
     
     std::cout << "   Tiempo: " << duration.count() << " μs\n";
-    std::cout << "   Aristas MST: " << mst2.size() << "\n";
-    std::cout << "   Peso total: " << weight2 << "\n\n";
+    std::cout << "   Aristas MST: " << mstSortedRaw.size() << "\n";
+    std::cout << "   Peso total: " << weightSortedRaw << "\n\n";
 
     // ==================== PRUEBA 3: Kruskal Heap + Union-Find Optimizado ====================
     std::cout << "3. Kruskal Heap + Union-Find Optimizado:\n";
-    start = std::chrono::high_resolution_clock::now();
-    std::vector<Edge> mst3 = kruskalHeapOptim(g);
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    startTime = std::chrono::high_resolution_clock::now();
+    std::vector<Edge> mstHeapOptim = kruskalHeapOptim(testGraph);
+    endTime = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
     
-    double weight3 = 0;
-    for (const Edge& e : mst3) weight3 += e.weight;
+    double weightHeapOptim = 0;
+    for (const Edge& edge : mstHeapOptim) weightHeapOptim += edge.weight;
     
     std::cout << "   Tiempo: " << duration.count() << " μs\n";
-    std::cout << "   Aristas MST: " << mst3.size() << "\n";
-    std::cout << "   Peso total: " << weight3 << "\n\n";
+    std::cout << "   Aristas MST: " << mstHeapOptim.size() << "\n";
+    std::cout << "   Peso total: " << weightHeapOptim << "\n\n";
 
     // ==================== PRUEBA 4: Kruskal Heap + Union-Find Raw ====================
     std::cout << "4. Kruskal Heap + Union-Find Sin Optimizar:\n";
-    start = std::chrono::high_resolution_clock::now();
-    std::vector<Edge> mst4 = kruskalHeapRaw(g);
-    end = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    startTime = std::chrono::high_resolution_clock::now();
+    std::vector<Edge> mstHeapRaw = kruskalHeapRaw(testGraph);
+    endTime = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
     
-    double weight4 = 0;
-    for (const Edge& e : mst4) weight4 += e.weight;
+    double weightHeapRaw = 0;
+    for (const Edge& edge : mstHeapRaw) weightHeapRaw += edge.weight;
     
     std::cout << "   Tiempo: " << duration.count() << " μs\n";
-    std::cout << "   Aristas MST: " << mst4.size() << "\n";
-    std::cout << "   Peso total: " << weight4 << "\n\n";
+    std::cout << "   Aristas MST: " << mstHeapRaw.size() << "\n";
+    std::cout << "   Peso total: " << weightHeapRaw << "\n\n";
 
     // ==================== VERIFICACIÓN ====================
     std::cout << "=== VERIFICACIÓN ===\n";
     std::cout << "¿Todos los MST tienen el mismo peso? ";
-    if (weight1 == weight2 && weight2 == weight3 && weight3 == weight4) {
+    if (weightSortedOptim == weightSortedRaw && weightSortedRaw == weightHeapOptim && weightHeapOptim == weightHeapRaw) {
         std::cout << "✅ SÍ - Todas las implementaciones son correctas\n";
     } else {
         std::cout << "❌ NO - Hay diferencias entre implementaciones\n";
-        std::cout << "Pesos: " << weight1 << ", " << weight2 << ", " << weight3 << ", " << weight4 << "\n";
+        std::cout << "Pesos: " << weightSortedOptim << ", " << weightSortedRaw << ", " << weightHeapOptim << ", " << weightHeapRaw << "\n";
     }
 
-    std::cout << "¿Todos los MST tienen " << (N-1) << " aristas? ";
-    if (mst1.size() == N-1 && mst2.size() == N-1 && mst3.size() == N-1 && mst4.size() == N-1) {
+    std::cout << "¿Todos los MST tienen " << (numNodes-1) << " aristas? ";
+    if (mstSortedOptim.size() == numNodes-1 && mstSortedRaw.size() == numNodes-1 && mstHeapOptim.size() == numNodes-1 && mstHeapRaw.size() == numNodes-1) {
         std::cout << "✅ SÍ\n";
     } else {
         std::cout << "❌ NO\n";

@@ -1,24 +1,24 @@
 #include "kruskal_sorted_raw.hpp"
 #include "union_find_raw.hpp"
-#include <algorithm>  // std::sort
+#include <algorithm>
 
-std::vector<Edge> kruskalSortedRaw(const Graph& g) {
-    int n = g.nodes.size();
+std::vector<Edge> kruskalSortedRaw(const Graph& graph) {
+    int numNodes = graph.nodes.size();
     std::vector<Edge> mst;
-    mst.reserve(n - 1);
+    mst.reserve(numNodes - 1);
 
     // Copia de las aristas para ordenar
-    std::vector<Edge> edges = g.edges;
-    std::sort(edges.begin(), edges.end());  // usa operador <
+    std::vector<Edge> sortedEdges = graph.edges;
+    std::sort(sortedEdges.begin(), sortedEdges.end());
 
-    UnionFindRaw dsu(n);
+    UnionFindRaw unionFind(numNodes);
 
-    for (const Edge& e : edges) {
-        if (dsu.find(e.from) != dsu.find(e.to)) {
-            dsu.unite(e.from, e.to);
-            mst.push_back(e);
-            if (mst.size() == static_cast<size_t>(n - 1))
-                break;  // árbol de expansión mínimo completo
+    for (const Edge& currentEdge : sortedEdges) {
+        if (unionFind.find(currentEdge.from) != unionFind.find(currentEdge.to)) {
+            unionFind.unite(currentEdge.from, currentEdge.to);
+            mst.push_back(currentEdge);
+            if (mst.size() == static_cast<size_t>(numNodes - 1))
+                break;
         }
     }
 

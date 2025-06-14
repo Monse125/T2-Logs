@@ -1,29 +1,29 @@
 #include "union_find_raw.hpp"
 
-UnionFindRaw::UnionFindRaw(int n) : parent(n), size(n, 1) {
-    for (int i = 0; i < n; ++i)
-        parent[i] = i;
+UnionFindRaw::UnionFindRaw(int numNodes) : parent(numNodes), size(numNodes, 1) {
+    for (int nodeIndex = 0; nodeIndex < numNodes; ++nodeIndex)
+        parent[nodeIndex] = nodeIndex;
 }
 
-int UnionFindRaw::find(int u) {
+int UnionFindRaw::find(int node) {
     // SIN compresión de caminos - solo sigue el camino hasta la raíz
-    while (parent[u] != u) {
-        u = parent[u];
+    while (parent[node] != node) {
+        node = parent[node];
     }
-    return u;
+    return node;
 }
 
-void UnionFindRaw::unite(int u, int v) {
-    int pu = find(u);
-    int pv = find(v);
-    if (pu == pv) return;
+void UnionFindRaw::unite(int nodeA, int nodeB) {
+    int rootA = find(nodeA);
+    int rootB = find(nodeB);
+    if (rootA == rootB) return;
 
     // CON unión por tamaño (igual que la versión optimizada)
-    if (size[pu] < size[pv]) {
-        parent[pu] = pv;
-        size[pv] += size[pu];
+    if (size[rootA] < size[rootB]) {
+        parent[rootA] = rootB;
+        size[rootB] += size[rootA];
     } else {
-        parent[pv] = pu;
-        size[pu] += size[pv];
+        parent[rootB] = rootA;
+        size[rootA] += size[rootB];
     }
 }
