@@ -1,2 +1,91 @@
+# Ejecutables y archivos compilados
+*.exe
+*.out
+*.run
+*.app
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+
+# Archivos del compilador
+*.gch
+*.pch
+
+# Archivos de IDEs
+.vscode/
+.vs/
+*.vcxproj*
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos de Code::Blocks
+*.cbp
+*.layout
+*.depend
+
+# Archivos de Dev-C++
+*.dev
+
+# Archivos de Visual Studio
+*.vcproj
+*.vcxproj.filters
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Archivos de Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# Archivos de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Archivos de Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Archivos de configuración local
+config.local
+settings.local
+*.local
+
+# Archivos de backup
+*.backup
+*.old
+*.orig
+
+# Archivos comprimidos accidentales
+*.zip
+*.tar.gz
+*.rar
+*.7z
 
 venv
