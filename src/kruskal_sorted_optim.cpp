@@ -1,5 +1,5 @@
 #include "kruskal_sorted_optim.hpp"
-#include "union_find.hpp"
+#include "union_find_optim.hpp"  // Cambiar include
 #include <algorithm>  // std::sort
 
 std::vector<Edge> kruskalSortedOptim(const Graph& g) {

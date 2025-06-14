@@ -1,5 +1,5 @@
 #include "kruskal_heap_raw.hpp"
-#include "union_find_raw.hpp"
+#include "union_find_raw.hpp"  // Usar el header correcto
 #include <queue>
 
 // Comparador personalizado para min-heap

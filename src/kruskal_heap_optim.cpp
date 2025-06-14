@@ -1,5 +1,5 @@
 #include "kruskal_heap_optim.hpp"
-#include "union_find.hpp"
+#include "union_find_optim.hpp"  // Cambiar de union_find.hpp
 #include <queue>
 
 // Comparador personalizado para min-heap
