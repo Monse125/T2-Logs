@@ -21,7 +21,7 @@ public:
     std::vector<Node> nodes; ///< Vector de nodos con coordenadas (x, y) aleatorias
     std::vector<Edge> edges; ///< Vector de todas las aristas del grafo completo
 
-    Graph(int N);  // Constructor que genera nodos aleatorios y crea todas las aristas
+    Graph(int N);  // Constructor que genera nodos aleatorios y crea todas las aristas, implementación en graph.cpp
 };
 
 #endif
