@@ -14,7 +14,6 @@
  * 
  * @complexity Tiempo: O(E log E + E α(V)) donde α es la función inversa de Ackermann
  * @complexity Espacio: O(E + V)
- * @note Versión optimizada con mejor rendimiento que kruskalSortedRaw
  * @note El ordenamiento inicial domina la complejidad temporal
  */
 std::vector<Edge> kruskalSortedOptim(const Graph& graph) {

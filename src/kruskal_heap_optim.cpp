@@ -32,7 +32,6 @@ struct EdgeComparator {
  * 
  * @complexity Tiempo: O(E log E + E α(V)) donde α es la función inversa de Ackermann
  * @complexity Espacio: O(E + V)
- * @note Versión optimizada con mejor rendimiento que kruskalHeapRaw
  */
 std::vector<Edge> kruskalHeapOptim(const Graph& graph) {
     int numNodes = graph.nodes.size();
