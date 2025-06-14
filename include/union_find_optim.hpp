@@ -1,5 +1,5 @@
-#ifndef UNION_FIND_HPP
-#define UNION_FIND_HPP
+#ifndef UNION_FIND_OPTIM_HPP  // Cambiar nombre del guard
+#define UNION_FIND_OPTIM_HPP
 
 #include <vector>
 

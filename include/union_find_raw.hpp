@@ -6,6 +6,7 @@
 class UnionFindRaw {
 private:
     std::vector<int> parent;
+    std::vector<int> size;  // Necesario para unión por tamaño
 
 public:
     UnionFindRaw(int n);
