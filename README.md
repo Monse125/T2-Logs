@@ -100,6 +100,3 @@ El experimento completo genera:
 - Progreso por consola para cada tamaño N ∈ {2^5, 2^6, ..., 2^12}
 - Archivo `results.csv` con todos los tiempos medidos
 - Tabla resumen al final
-
-## Autores
-[Agregar nombres del equipo aquí]
