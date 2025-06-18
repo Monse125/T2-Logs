@@ -88,7 +88,9 @@ int main() {
     }
 
     std::cout << "¿Todos los MST tienen " << (numNodes-1) << " aristas? ";
-    if (mstSortedOptim.size() == numNodes-1 && mstSortedRaw.size() == numNodes-1 && mstHeapOptim.size() == numNodes-1 && mstHeapRaw.size() == numNodes-1) {
+    size_t expectedEdges = static_cast<size_t>(numNodes - 1);
+    if (mstSortedOptim.size() == expectedEdges && mstSortedRaw.size() == expectedEdges && 
+        mstHeapOptim.size() == expectedEdges && mstHeapRaw.size() == expectedEdges) {
         std::cout << "✅ SÍ\n";
     } else {
         std::cout << "❌ NO\n";
