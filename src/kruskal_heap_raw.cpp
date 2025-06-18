@@ -1,6 +1,7 @@
 #include "kruskal_heap_raw.hpp"
 #include "union_find_raw.hpp"
 #include <queue>
+#include <cstddef>
 
 /**
  * @brief Comparador personalizado para crear un min-heap de aristas
